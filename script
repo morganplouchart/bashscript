@@ -1,0 +1,127 @@
+#! bin/bash
+
+color[0]="Rose"
+color[1]="Vert"
+color[2]="Violet"
+color[3]="Noir"
+color[4]="Blanc"
+response[0]="";
+response[1]="";
+
+echo "Bonjour, pour vous guider dans votre choix nous allons vous posez des questions qui permettra de vous proposer le meilleur produit disponible"
+
+
+echo -----------------------------------------------------------------------
+
+function Q1 {
+
+echo "De quelle couleur sera votre meuble?"
+select choice in ${color[0]} ${color[1]} ${color[2]} ${color[3]} ${color[4]}; do
+    case $choice in
+        "Rose" )response[0]="Rose"; break;;
+        "Vert" )response[0]="Vert"; break;;
+        "Violet" )response[0]="Violet"; break;;
+        "Noir" )response[0]="Noir"; break;;
+        "Blanc" )response[0]="Blanc"; break;;
+    esac
+done
+}
+
+Q1
+
+echo ----------------------------------------------------------------------
+
+function Q2 {
+
+echo "Dans quelle piéce sera votre meuble?"
+select choice in "Salle de bain" "Salle à manger" "Salon" "Chambre" "Cuisine"; do
+    case $choice in
+        "Salle de bain" )response[1]="Salle de bain" break;;
+        "Salle à manger" )response[1]="Salle à manger" break;;
+	"Salon" )response[1]="Salon" break;;
+	"Chambre" )response[1]="Chambre" break;;
+	"Cuisine" )response[1]="Cuisine" break;;
+    esac
+done
+}
+
+Q2
+
+echo ----------------------------------------------------------------------
+
+function Q3 {
+
+echo "De quel matériaux sera votre meuble ?"
+select choice in "Papier maché" "Plastique" "Bois" "Metal" "Carton"; do
+    case $choice in
+        "Papier maché" ) break;;
+        "Plastique" ) break;;
+        "Bois" ) break;;
+        "Metal" ) break;;
+        "Carton" ) break;;
+    esac
+done
+}
+
+Q3
+
+echo ----------------------------------------------------------------------
+
+function Q4 {
+
+echo "De Quel type sera votre meuble?"
+select choice in "Asiatique" "LouisXV" "Napoléon" "Ikea" "Japonais"; do
+    case $choice in
+        "Asiatique" ) break;;
+        "LouisXV" ) break;;
+        "Napoléon" ) break;;
+        "Ikea" ) break;;
+        "Japonais" ) break;;
+    esac
+done
+}
+
+Q4
+
+echo ----------------------------------------------------------------------
+
+
+function Q6 {
+
+echo "Merci de vouloir continuer sa montre la motivation d'avoir votre meuble. Le choix est fait maintenantfaut payer"
+echo ----------------------------------------------------------------------
+select choice in "CB" "Chéque" "Virement" "Cash" "Paypal"; do
+    case $choice in
+        "CB" ) break;;
+        "Chéque" ) break;;
+        "Virement" ) break;;
+        "Cash" ) break;;
+        "Paypal" ) break;;
+    esac
+done
+}
+
+
+function Q5 {
+  read -p 'Voulez-vous continuer (oui\non) ? ' -n 3 reponse
+
+  if [ $reponse = "oui" ]
+  then
+
+    echo ----------------------------------------------------------------------
+          Q6
+  else
+          exit;
+  fi
+}
+
+Q5
+
+echo ----------------------------------------------------------------------
+
+
+
+
+
+#echo Récapitulatif : Votre meuble est de couleur ${response[0]} ${response[1]}
+
